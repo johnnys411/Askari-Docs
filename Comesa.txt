@@ -1,0 +1,274 @@
+namespace Expedire_Toolkit.UserControls.DocCoder
+{
+    /// <summary>
+    /// Interaction logic for DocCoderView.xaml
+    /// </summary>
+    public partial class DocCoderView : System.Windows.Controls.UserControl
+    {
+        
+
+        public DocCoderView()
+        {
+            InitializeComponent();
+        }
+
+
+
+        public byte[] Generate_Certificate()
+        {
+            //You’ll need a PDF document
+            PdfDocument document = new PdfDocument();
+
+
+
+
+            //And you need a page:
+            PdfPage pdfPage = document.AddPage();
+            PdfPage page = pdfPage;
+
+            page.Height = new XUnit(297, XGraphicsUnit.Millimeter);
+            page.Width = new XUnit(210, XGraphicsUnit.Millimeter);
+
+
+            //Drawing is done with an XGraphics object
+            XGraphics gfx = XGraphics.FromPdfPage(page, unit: XGraphicsUnit.Millimeter);
+
+
+            //Fonts 
+            XFont font = new XFont("Helvetica", 1.6d, XFontStyle.Regular);
+            XFont BOLD_font = new XFont("Helvetica", 2.7d, XFontStyle.Bold);
+            XFont BOLD_font1 = new XFont("Helvetica", 3.5d, XFontStyle.Bold);
+            XFont BOLD_font2 = new XFont("Helvetica", 2.5d, XFontStyle.Bold);
+            XFont font1 = new XFont("manrope", 3.1d, XFontStyle.Underline);
+            XFont font2 = new XFont("manrope", 2.5d);
+            XFont font3 = new XFont("manrope", 2.8d);
+            XFont font4 = new XFont("manrope", 3.4d);
+            XFont font5 = new XFont("Helvetica", 2.8d, XFontStyle.Bold);
+
+
+          
+
+          
+     
+
+            //Comesa back drop
+            XImage image1 = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\Certificate_COMESA COPY.jpg");
+            gfx.DrawImage(image: image1, x: 1, y: 1, width: image1.PixelWidth * 37 / image1.HorizontalResolution, height: image1.PixelHeight * 40 / image1.HorizontalResolution);
+
+
+            //Askari logo
+            //?
+            //barcode
+            //?
+
+
+            //left static info left side
+            gfx.DrawString("ISSUED ON",        font5, XBrushes.Black, new XRect(x: 10, y: 50, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("DÉLIVRÉE LE",      font5, XBrushes.Black, new XRect(x: 10, y: 54, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("REGISTRATION NO",     font5, XBrushes.Black, new XRect(x: 10, y: 60, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("N° D'IMATRICULATION", font5, XBrushes.Black, new XRect(x: 10, y: 64, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("VEHICLE TYPE",     font5, XBrushes.Black, new XRect(x: 10, y: 70, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("TYPE DE VÉHICULE", font5, XBrushes.Black, new XRect(x: 10, y: 74, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("VALID FROM",       font5, XBrushes.Black, new XRect(x: 10, y: 80, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("VALABLE DU",       font5, XBrushes.Black, new XRect(x: 10, y: 84, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("INSURED", font5, XBrushes.Black, new XRect(x: 10, y: 95, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ASSURÉ",  font5, XBrushes.Black, new XRect(x: 10, y: 100, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("INSURER",  font5, XBrushes.Black, new XRect(x: 10, y: 110, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ASSUREUR", font5, XBrushes.Black, new XRect(x: 10, y: 114, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("PREMIUM", font5, XBrushes.Black, new XRect(x: 10, y: 120, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("PRIME",   font5, XBrushes.Black, new XRect(x: 10, y: 124, 22, 0), XStringFormats.TopLeft);
+
+
+
+            //centre static
+            gfx.DrawString("ISSUED ON",   font5, XBrushes.Black, new XRect(x: 75, y: 50, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("DÉLIVRÉE LE", font5, XBrushes.Black, new XRect(x: 75, y: 54, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("REGISTRATION NO",     font5, XBrushes.Black, new XRect(x: 75, y: 60, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("N° D'IMATRICULATION", font5, XBrushes.Black, new XRect(x: 75, y: 64, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("VEHICLE TYPE",     font5, XBrushes.Black, new XRect(x: 75, y: 70, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("TYPE DE VÉHICULE", font5, XBrushes.Black, new XRect(x: 75, y: 74, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("VALID FROM", font5, XBrushes.Black, new XRect(x: 75, y: 80, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("VALABLE DU", font5, XBrushes.Black, new XRect(x: 75, y: 84, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("TAX&LEVY", font5, XBrushes.Black, new XRect(x: 75, y: 120, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("TAX&LEVY", font5, XBrushes.Black, new XRect(x: 75, y: 124, 22, 0), XStringFormats.TopLeft);
+
+
+
+
+            // right side static
+
+            gfx.DrawString("Y/C NO",     font5, XBrushes.Black, new XRect(x: 140, y: 50, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("N° DE CJ",   font5, XBrushes.Black, new XRect(x: 140, y: 54, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("CHASSIS NO",    font5, XBrushes.Black, new XRect(x: 140, y: 60, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("N° DU CHÂSSIS", font5, XBrushes.Black, new XRect(x: 140, y: 64, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("USE",   font5, XBrushes.Black, new XRect(x: 140, y: 70, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("USAGE", font5, XBrushes.Black, new XRect(x: 140, y: 74, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("COUNTRIES", font5, XBrushes.Black, new XRect(x: 140, y: 80, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("COVERED",   font5, XBrushes.Black, new XRect(x: 140, y: 84, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("PAYS APPLICABLES", font5, XBrushes.Black, new XRect(x: 140, y: 88, 22, 0), XStringFormats.TopLeft);
+
+
+            gfx.DrawString("ADDRESS",  font5, XBrushes.Black, new XRect(x: 140, y: 95, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ADDRESSE", font5, XBrushes.Black, new XRect(x: 140, y: 100, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("ADDRESS",  font5, XBrushes.Black, new XRect(x: 140, y: 110, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ADDRESSE", font5, XBrushes.Black, new XRect(x: 140, y: 114, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("TOTAL", font5, XBrushes.Black, new XRect(x: 140, y: 120, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("TOTAL", font5, XBrushes.Black, new XRect(x: 140, y: 124, 22, 0), XStringFormats.TopLeft);
+
+
+            // Veriable data left
+            // Issued on
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 50, 22, 0), XStringFormats.TopLeft);
+
+            //REGISTRATION NO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 60, 22, 0), XStringFormats.TopLeft);
+
+            //VEHICLE TYPE
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 70, 22, 0), XStringFormats.TopLeft);
+
+            //VALID FROM
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 80, 22, 0), XStringFormats.TopLeft);
+
+            //INSURED
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 95, 22, 0), XStringFormats.TopLeft);
+            
+            //static value///////////
+            gfx.DrawString("Askari Insurance Services (B2B - Republic of South Africa) ", font5, XBrushes.Black, new XRect(x: 45, y: 110, 22, 0), XStringFormats.TopLeft);
+
+            //PREMIUM
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 45, y: 120, 22, 0), XStringFormats.TopLeft);
+
+
+
+            //Veriable data centre
+
+            //POLICY NO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 110, y: 50, 22, 0), XStringFormats.TopLeft);
+
+            //ENGINE NO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 110, y: 60, 22, 0), XStringFormats.TopLeft);
+
+            //MAKE
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 110, y: 70, 22, 0), XStringFormats.TopLeft);
+
+            //VALID TO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 110, y: 80, 22, 0), XStringFormats.TopLeft);
+
+            //TAX&LEVY
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 110, y: 120, 22, 0), XStringFormats.TopLeft);
+
+
+
+
+            //right side static
+
+            //Y/C NO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 165, y: 50, 22, 0), XStringFormats.TopLeft);
+
+            //CHASSIS NO
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 165, y: 60, 22, 0), XStringFormats.TopLeft);
+
+            //USE
+            gfx.DrawString(".........................", font5, XBrushes.Black, new XRect(x: 165, y: 70, 22, 0), XStringFormats.TopLeft);
+
+            //COUNTRIES
+
+            gfx.DrawString("..........................", font5, XBrushes.Black, new XRect(x: 165, y: 80, 22, 0), XStringFormats.TopLeft);
+
+
+            //ADDRESS
+            gfx.DrawString("..........................", font5, XBrushes.Black, new XRect(x: 165, y: 95, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("..........................", font5, XBrushes.Black, new XRect(x: 165, y: 98, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("..........................", font5, XBrushes.Black, new XRect(x: 165, y: 101, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("..........................", font5, XBrushes.Black, new XRect(x: 165, y: 104, 22, 0), XStringFormats.TopLeft);
+
+
+
+
+            //ADDRESS PO BOX
+            gfx.DrawString("...........................", font5, XBrushes.Black, new XRect(x: 165, y: 110, 22, 0), XStringFormats.TopLeft);
+
+            // TOTAL
+            gfx.DrawString("............................", font5, XBrushes.Black, new XRect(x: 165, y: 120, 22, 0), XStringFormats.TopLeft);
+
+
+            //footer stamps and barcode
+            gfx.DrawString("NAME AND ADDRESS OF BUREAU", font4, XBrushes.Black, new XRect(x: 45, y: 135, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("NOM ET ADDRESSE DU BUREAU ÉMETTEUR", font4, XBrushes.Black, new XRect(x: 45, y: 139, 22, 0), XStringFormats.TopCenter);
+
+            gfx.DrawString("Askari Insurance Services (B2B - Republic of", font5, XBrushes.Black, new XRect(x: 45, y: 145, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("South Africa) on behalf of",                   font5, XBrushes.Black, new XRect(x: 45, y: 149, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("Insurance Council of Zimbabwe",                font5, XBrushes.Black, new XRect(x: 45, y: 153, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("P.O. Box 4174 Harare, n.a HARARE",             font5, XBrushes.Black, new XRect(x: 45, y: 157, 22, 0), XStringFormats.TopCenter);
+
+            gfx.DrawString("UNDERWRITER SIGNATURE", font4, XBrushes.Black, new XRect(x: 110, y: 135, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("SOUSCRIPTEUR SIGNATURE", font4, XBrushes.Black, new XRect(x: 110, y: 139, 22, 0), XStringFormats.TopLeft);
+
+
+
+
+
+
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                document.Save(ms);
+
+                return ms.ToArray();
+            }
+
+            ////When drawing is done, write the file:
+            //string filename = "Test.pdf";
+            //document.Save(filename);
+
+            //Process.Start(filename);
+        }
+
+        private void UpdateDocumentPreview()
+        {
+            string content = Convert.ToBase64String(Generate_Certificate());
+
+            pdfWebViewer.Load($"data:application/pdf;base64,{content}");
+        }
+
+
+        private void pdfWebViewer_Loaded(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+        private void btn_generatePreview_Click(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+
+        private void btn_DownloadPDF_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] FileContent = Generate_Certificate();
+
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PDF File (*.pdf)|*.pdf";
+            dialog.DefaultExt = "pdf";
+            dialog.AddExtension = true;
+            dialog.FileName = $"Preview_ExpedireTestDoc.pdf";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllBytes(dialog.FileName, FileContent);
+                System.Windows.MessageBox.Show("Completed. Saved @ -> " + dialog.FileName);
+            }
+
+        }
+    }
+}

@@ -1,0 +1,336 @@
+namespace Expedire_Toolkit.UserControls.DocCoder
+{
+    /// <summary>
+    /// Interaction logic for DocCoderView.xaml
+    /// </summary>
+    public partial class DocCoderView : System.Windows.Controls.UserControl
+    {
+        
+
+        public DocCoderView()
+        {
+            InitializeComponent();
+        }
+
+
+
+        public byte[] Generate_Certificate()
+        {
+            //You’ll need a PDF document
+            PdfDocument document = new PdfDocument();
+
+
+
+
+            //And you need a page:
+            PdfPage pdfPage = document.AddPage();
+            PdfPage page = pdfPage;
+
+            page.Height = new XUnit(297, XGraphicsUnit.Millimeter);
+            page.Width = new XUnit(210, XGraphicsUnit.Millimeter);
+
+
+            //Drawing is done with an XGraphics object
+            XGraphics gfx = XGraphics.FromPdfPage(page, unit: XGraphicsUnit.Millimeter);
+
+
+            //Fonts 
+            XFont font = new XFont("Helvetica", 1.6d, XFontStyle.Regular);
+            XFont BOLD_font = new XFont("Helvetica", 2.7d, XFontStyle.Bold);
+            XFont BOLD_font1 = new XFont("Helvetica", 3.5d, XFontStyle.Bold);
+            XFont BOLD_font2 = new XFont("Helvetica", 2.5d, XFontStyle.Bold);
+            XFont font1 = new XFont("manrope", 3.1d, XFontStyle.Underline);
+            XFont font2 = new XFont("manrope", 2.5d);
+            XFont font3 = new XFont("manrope", 2.8d);
+            XFont font4 = new XFont("manrope", 4.0d);
+            XFont font5 = new XFont("manrope", 1.8d);
+
+
+            //Png load out
+
+            //backdop do not delete
+            XImage image2 = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\icetag.png");
+            gfx.DrawImage(image: image2, x: 50, y: 15, width: image2.PixelWidth * 27 / image2.HorizontalResolution, height: image2.PixelHeight * 27 / image2.HorizontalResolution);
+
+            //
+            XImage image1 = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\icelogo.png");
+            gfx.DrawImage(image: image1, x: 73.2, y: 46, width: image1.PixelWidth * 24 / image1.HorizontalResolution, height: image1.PixelHeight * 24 / image1.HorizontalResolution);
+
+
+
+
+
+
+
+
+            //Variable data class//
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 35, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 45, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 55, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 65, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 75, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("...........", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 85, 22, 0), XStringFormats.TopCenter);
+
+
+
+            //Static Data
+            gfx.DrawString("SEGURADO", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 30, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("NÚMERO DA APÓLICE", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 40, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("VEÍCULO ", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 50, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("MATRÍCULA", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 60, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("LIMITE R.C. ", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 70, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("VALIDADE", BOLD_font1, XBrushes.Black, new XRect(x: 97, y: 80, 22, 0), XStringFormats.TopCenter);
+
+
+
+            //Terms and condtions headers
+            gfx.DrawString("Terms and  Conditions", font1, XBrushes.Black, new XRect(x: 10, y: 110, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Definiçăo de Incidentes", font1, XBrushes.Black, new XRect(x: 105, y: 110, 22, 0), XStringFormats.TopLeft);
+
+
+
+            //terms and condtions left side 
+
+            gfx.DrawString("Defined Events",                                                                                                     font5, XBrushes.Black, new XRect(x: 10, y: 121, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Any accident caused by or through or in connection with any vehicle described in the schedule or in connection",     font5, XBrushes.Black, new XRect(x: 10, y: 123, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("with the loading and/or unloading of such vehicle against all sums including claimant’s cost and expenses with the", font5, XBrushes.Black, new XRect(x: 10, y: 125, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("insured and/or any passenger shall become legally liable to pay in respect of :-",                                   font5, XBrushes.Black, new XRect(x: 10, y: 127, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(i)          Death or bodily injury to any person but excluding death of or bodily injury to any person",            font5, XBrushes.Black, new XRect(x: 10, y: 129, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("in the employ of the insured arising from and in the course of such employment or being a member of",                font5, XBrushes.Black, new XRect(x: 10, y: 131, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("the same household as the insured",                                                                                  font5, XBrushes.Black, new XRect(x: 10, y: 133, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(ii) Damage to property other than property belonging to the insured or held in trust by or in",                      font5, XBrushes.Black, new XRect(x: 10, y: 135, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("the custody or control of the insured or being conveyed by loaded onto or unloaded from such vehicle.",               font5, XBrushes.Black, new XRect(x: 10, y: 137, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("The company will also:",                                                                                              font5, XBrushes.Black, new XRect(x: 10, y: 139, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1) Pay all costs and expenses incurred with their written consent and shall be entitled at",                          font5, XBrushes.Black, new XRect(x: 10, y: 141, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("their discretion to arrange for representation at any inquest or inquiry in respect of any death which may",          font5, XBrushes.Black, new XRect(x: 10, y: 143, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("be the subject of indemnity under this sub-section or for defending in any magistrates court any criminal",           font5, XBrushes.Black, new XRect(x: 10, y: 145, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("proceedings in respect of any act causing or relating to any event which may be the subject of indemnity",            font5, XBrushes.Black, new XRect(x: 10, y: 147, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("under this sub-section, provided that the total of the company’s maximum liability shall not exceed the",             font5, XBrushes.Black, new XRect(x: 10, y: 149, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("limit of indemnity stated in the policy hereafter.",                                                                  font5, XBrushes.Black, new XRect(x: 10, y: 151, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2)           Indemnify (in terms of and subject to the limitations of and for the purposes of this",                  font5, XBrushes.Black, new XRect(x: 10, y: 153, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("insurance) any person who is driving or using such vehicle on the insured’s order or with the insured’s",             font5, XBrushes.Black, new XRect(x: 10, y: 155, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("permission provided that :",                                                                                          font5, XBrushes.Black, new XRect(x: 10, y: 157, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a.           such person shall as though he were the insured observe, fulfil and be subject to the",                  font5, XBrushes.Black, new XRect(x: 10, y: 159, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("terms exception and conditions of this insurance in so far as they can apply",                                        font5, XBrushes.Black, new XRect(x: 10, y: 161, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b. such person driving such vehicle has not been refused any motor insurance or continuance thereof by",              font5, XBrushes.Black, new XRect(x: 10, y: 163, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c.indemnity shall not apply in respect of claims made by any member of the same household as such",                   font5, XBrushes.Black, new XRect(x: 10, y: 165, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("person",                                                                                                              font5, XBrushes.Black, new XRect(x: 10, y: 167, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d.           such person is not entitled to indemnity under any other policy except in respect of any",               font5, XBrushes.Black, new XRect(x: 10, y: 169, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("amount not recoverable hereunder.",                                                                                   font5, XBrushes.Black, new XRect(x: 10, y: 171, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("3)           Indemnify the insured while personally driving any private type motor car not belonging",                font5, XBrushes.Black, new XRect(x: 10, y: 173, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("to him and not leased or hired to him under a lease or suspensive sale agreement, provided the insured",              font5, XBrushes.Black, new XRect(x: 10, y: 175, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("is an individual and has insured hereunder a vehicle described under definition 2(a) or (b)",                         font5, XBrushes.Black, new XRect(x: 10, y: 177, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("4)           Indemnify the insured in respect of liability arising from the towing by a vehicle (other",              font5, XBrushes.Black, new XRect(x: 10, y: 179, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("than for reward) of any other vehicle or trailer (including liability in connection with the towed or trailer),",     font5, XBrushes.Black, new XRect(x: 10, y: 181, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("provided the company shall not be liable for damage to the towed vehicle or trailer nor to property",                 font5, XBrushes.Black, new XRect(x: 10, y: 183, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("therein or thereon.",                                                                                                 font5, XBrushes.Black, new XRect(x: 10, y: 185, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Exceptions",                                                                                                          font5, XBrushes.Black, new XRect(x: 10, y: 187, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("The company shall not be liable under this policy for:",                                                              font5, XBrushes.Black, new XRect(x: 10, y: 189, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a)           death of or injury to any person being carried in or upon or entering or getting onto or",               font5, XBrushes.Black, new XRect(x: 10, y: 191, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("alighting from a vehicle described in definition 2(a) (b) (c) (d) or (e) at the time of the occurrence of the",       font5, XBrushes.Black, new XRect(x: 10, y: 193, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("event from which any claim arises",                                                                                   font5, XBrushes.Black, new XRect(x: 10, y: 195, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b)           liability arising from the operation, demonstration or use for purposes other than",                     font5, XBrushes.Black, new XRect(x: 10, y: 197, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("maintenance or repair of a vehicle (unless it is a fork lift truck) or any tool or plant forming part of or",         font5, XBrushes.Black, new XRect(x: 10, y: 199, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("attached or used in connection with a vehicle or anything manufactured by or contained in any such tool",             font5, XBrushes.Black, new XRect(x: 10, y: 201, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("or plant.",                                                                                                           font5, XBrushes.Black, new XRect(x: 10, y: 203, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Limits of Indemnity",                                                                                                 font5, XBrushes.Black, new XRect(x: 10, y: 205, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Unless otherwise stated the liability of the company under this policy in respect of any one occurrence shall not",   font5, XBrushes.Black, new XRect(x: 10, y: 207, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Exceed the limit of R1 000 000-00.",                                                                                  font5, XBrushes.Black, new XRect(x: 10, y: 209, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Definitions",                                                                                                         font5, XBrushes.Black, new XRect(x: 10, y: 211, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1.Occurrence",                                                                                                        font5, XBrushes.Black, new XRect(x: 10, y: 213, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("The term occurrence shall mean an occurrence or series of occurrences arising from one cause in connection with",     font5, XBrushes.Black, new XRect(x: 10, y: 215, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("any one vehicle in respect of which indemnity is provided by this policy.",                                           font5, XBrushes.Black, new XRect(x: 10, y: 217, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2.Vehicle",                                                                                                           font5, XBrushes.Black, new XRect(x: 10, y: 219, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("The term shall mean",                                                                                                 font5, XBrushes.Black, new XRect(x: 10, y: 221, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a)           private type motor cars (including station wagons, safari van’s, estate cars and the like",              font5, XBrushes.Black, new XRect(x: 10, y: 223, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("or similar vehicles designed to seat not more than 9 persons including the driver)",                                  font5, XBrushes.Black, new XRect(x: 10, y: 225, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b) commercial vehicles and special type vehicles as described above",                                                 font5, XBrushes.Black, new XRect(x: 10, y: 227, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c)Motor cycles (including motor scooters and 3-wheeled vehicles",                                                     font5, XBrushes.Black, new XRect(x: 10, y: 229, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d) Buses (including any vehicle used for business purposes and designed to seat more than 9 persons,",                font5, XBrushes.Black, new XRect(x: 10, y: 231, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("including the driver)",                                                                                               font5, XBrushes.Black, new XRect(x: 10, y: 233, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("e)           Trailers, i.e. any vehicle without means of self-propulsion designed to be drawn by a",                  font5, XBrushes.Black, new XRect(x: 10, y: 235, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("self-propelled vehicle, but excluding any parts or accessories not permanently fitted thereto",                       font5, XBrushes.Black, new XRect(x: 10, y: 237, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Extensions",                                                                                                          font5, XBrushes.Black, new XRect(x: 10, y: 239, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1.Waiver of subrogation rights",                                                                                      font5, XBrushes.Black, new XRect(x: 10, y: 241, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("For the purpose of this section, the company waives all rights of subrogation or action which they may have or",      font5, XBrushes.Black, new XRect(x: 10, y: 243, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("acquire against any other person to whom the indemnity hereunder applies and each person shall observe, fulfil",        font5, XBrushes.Black, new XRect(x: 10, y: 245, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("and be subject to the terms exceptions and conditions (both general and specific) of this policy in so far as they can", font5, XBrushes.Black, new XRect(x: 10, y: 247, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("apply.",                                                                                                                 font5, XBrushes.Black, new XRect(x: 10, y: 249, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2.Cross Liabilities",                                                                                                    font5, XBrushes.Black, new XRect(x: 10, y: 251, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Where more than one insured is named in the schedule the company will indemnify each insured separately and",            font5, XBrushes.Black, new XRect(x: 10, y: 253, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("not jointly and any liability arising between such insured shall be treated as though separate policies had been",       font5, XBrushes.Black, new XRect(x: 10, y: 255, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("issued to each, provided that the aggregate liability of the company shall not exceed the limit of indemnity stated",    font5, XBrushes.Black, new XRect(x: 10, y: 257, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("in the schedule.",                                                                                                       font5, XBrushes.Black, new XRect(x: 10, y: 259, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("3.Description of use clause",                                                                                            font5, XBrushes.Black, new XRect(x: 10, y: 261, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Use for social, domestic and pleasure purposes and for the business or occupation of the insured, excluding: Hiring,",   font5, XBrushes.Black, new XRect(x: 10, y: 263, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("carriage of passengers for hire, carriage of fare paying passengers, racing, speed or other contest, rallies, trials,",  font5, XBrushes.Black, new XRect(x: 10, y: 265, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("carriage of explosives or chemicals, or carriage of any load or passengers exceeding the capacity for which the",        font5, XBrushes.Black, new XRect(x: 10, y: 267, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("vehicle is constructed or licensed to carry, or use for any purpose in connection with the motor trade. The",            font5, XBrushes.Black, new XRect(x: 10, y: 269, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("indemnity to the insured in connection with any vehicle shall operate while such vehicle is in the custody or control", font5, XBrushes.Black, new XRect(x: 10, y: 271, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("of a member of the motor trade for the purpose of its overhaul, upkeep or repair.",                                     font5, XBrushes.Black, new XRect(x: 10, y: 273, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Specific Exceptions.",                                                                                                  font5, XBrushes.Black, new XRect(x: 10, y: 275, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1.           The company shall not be liable for any accident, injury, loss, damage or liability",                      font5, XBrushes.Black, new XRect(x: 10, y: 277, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a) whilst the vehicle is being used otherwise than in accordance with the description of use",                          font5, XBrushes.Black, new XRect(x: 10, y: 279, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("clause",                                                                                                                font5, XBrushes.Black, new XRect(x: 10, y: 281, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b)           incurred outside the area which constitutes the Republic of Mozambique",                                   font5, XBrushes.Black, new XRect(x: 10, y: 283, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c)           whilst the vehicle is being used for any off road driving along the shoreline including",                  font5, XBrushes.Black, new XRect(x: 10, y: 285, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("whilst the vehicle is being used for the launching and/or recovery of any watercraft from the surf.",                   font5, XBrushes.Black, new XRect(x: 10, y: 287, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(i)          the insured whilst under the influence of intoxicating liquor or drugs (unless administered",              font5, XBrushes.Black, new XRect(x: 10, y: 289, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("by or prescribed by and taken in accordance with the instructions of a member of the medical",                          font5, XBrushes.Black, new XRect(x: 10, y: 291, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("",                                                                                                                      font5, XBrushes.Black, new XRect(x: 10, y: 293, 22, 0), XStringFormats.TopLeft);
+
+
+            //tc right side
+
+            //terms and condtions left side 
+
+            gfx.DrawString("Qualquer acidente causado por qualquer veículo, ou por intermédio do mesmo ou relativo ao mesmo, descrito na tabela ou", font5, XBrushes.Black, new XRect(x: 105, y: 117, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("em relaçăo ŕcarga e/ou descarga de tal veículo contra todas as quantias, incluindo os custos e as despesas do reclamador, por", font5, XBrushes.Black, new XRect(x: 105, y: 119, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("cujo pagamento o segurado e/ou qualquer passageiro se tornem responsáveis legalmente a respeito de",                   font5, XBrushes.Black, new XRect(x: 105, y: 121, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(i)         falecimento ou ferimento de qualquer pessoa mas excluindo falecimento ou ferimento de qualquer pessoa",    font5, XBrushes.Black, new XRect(x: 105, y: 123, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("que trabalhe para o segurado em resultado de tal ocupaçăo, ou no decurso da mesma, ou que seja membro do mesmo",       font5, XBrushes.Black, new XRect(x: 105, y: 125, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("agregado familiar do segurado.",                                                                                       font5, XBrushes.Black, new XRect(x: 105, y: 127, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(ii)        prejuízos a propriedade que năo seja a propriedade pertencente ao segurado ou administrada pelo",          font5, XBrushes.Black, new XRect(x: 105, y: 129, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("segurado, ou sob a sua supervisăo ou controle, ou que seja transportada ou carregada ou descarregada de tal veículo.", font5, XBrushes.Black, new XRect(x: 105, y: 131, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("A empresa também",                                                                                                          font5, XBrushes.Black, new XRect(x: 105, y: 133, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1)          pagará todos os custos e despesas incorridas com o seu consentimento por escrito e terá direito, ao seu",       font5, XBrushes.Black, new XRect(x: 105, y: 135, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("critério, a organizar representaçăo em qualquer sindicância ou inquérito em relaçăo a qualquer falecimento que possa ser",  font5, XBrushes.Black, new XRect(x: 105, y: 137, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("objecto de indemnizaçăo nos termos desta sub-secçăo, ou a defender em qualquer tribunal qualquer acçăo judicial em",        font5, XBrushes.Black, new XRect(x: 105, y: 139, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("relaçăo a qualquer acto que cause ou esteja relacionado com qualquer incidente, e que possa ser objecto de indemnizaçăo",   font5, XBrushes.Black, new XRect(x: 105, y: 141, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("nos termos desta sub-secçăo, desde que o total da responsabilidade máxima da empresa năo exceda o limite de",               font5, XBrushes.Black, new XRect(x: 105, y: 143, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("indemnizaçăo expresso na apólice mais adiante.",                                                                            font5, XBrushes.Black, new XRect(x: 105, y: 145, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2)          indemnizará (nos termos deste seguro e sujeito ŕs limitaçőes do mesmo e para efeitos do mesmo) qualquer",       font5, XBrushes.Black, new XRect(x: 105, y: 147, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("pessoa que conduza ou use tal veículo por ordem do segurado ou com a autorizaçăo do segurado desde que",                    font5, XBrushes.Black, new XRect(x: 105, y: 149, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a)          como se fosse o segurado, tal pessoa observe, cumpra e esteja sujeita aos termos, excepçőes e condiçőes",       font5, XBrushes.Black, new XRect(x: 105, y: 151, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("deste seguro na medida em que se aplicarem",                                                                                font5, XBrushes.Black, new XRect(x: 105, y: 153, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b)          a tal pessoa que conduza tal veículo năo tenha sido recusado qualquer seguro automóvel ou continuaçăo do",      font5, XBrushes.Black, new XRect(x: 105, y: 155, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("mesmo por qualquer companhia seguradora",                                                                                   font5, XBrushes.Black, new XRect(x: 105, y: 157, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c)          năo se aplique a indemnizaçăo a respeito de reclamaçőes efectuadas por qualquer membro do mesmo",               font5, XBrushes.Black, new XRect(x: 105, y: 159, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("agregado familiar de tal pessoa",                                                                                           font5, XBrushes.Black, new XRect(x: 105, y: 161, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d)          tal pessoa năo tenha direito a indemnizaçăo nos termos de qualquer outra apólice excepto em relaçăo a",         font5, XBrushes.Black, new XRect(x: 105, y: 163, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("qualquer quantia năo recuperável de acordo com este documento.",                                                            font5, XBrushes.Black, new XRect(x: 105, y: 165, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("3) indemnizará o segurado enquanto conduzir pessoalmente qualquer tipo de automóvel privado que năo lhe",                   font5, XBrushes.Black, new XRect(x: 105, y: 167, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("pertença e que năo lhe tenha sido arrendado ou alugado sob um acordo de arrendamento ou venda suspensiva, desde que o",     font5, XBrushes.Black, new XRect(x: 105, y: 169, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("segurado seja um indivíduo e tenha segurado de acordo com este documento um veículo descrito na definiçăo 2 (a) ou (b).",   font5, XBrushes.Black, new XRect(x: 105, y: 171, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("4)          indemnizará o segurado em relaçăo ŕresponsabilidade resultante do reboque por um veículo (por outro",           font5, XBrushes.Black, new XRect(x: 105, y: 173, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("motivo que năo a compensaçăo) de qualquer outro veículo ou atrelado (incluindo responsabilidade em relaçăo ao veículo",     font5, XBrushes.Black, new XRect(x: 105, y: 175, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("rebocado ou atrelado), desde que a empresa năo seja responsável por danos ao veículo rebocado ou ao atrelado nem ŕ",        font5, XBrushes.Black, new XRect(x: 105, y: 177, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("propriedade dentro deles ou sobre eles.",                                                                                   font5, XBrushes.Black, new XRect(x: 105, y: 179, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Excepçőes",                                                                                                                 font5, XBrushes.Black, new XRect(x: 105, y: 181, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("A empresa năo será responsável nos termos desta apólice por:",                                                              font5, XBrushes.Black, new XRect(x: 105, y: 183, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a)falecimento ou ferimento de qualquer pessoa que seja transportada num veículo, ou que entre nele ou saia dele, tal como", font5, XBrushes.Black, new XRect(x: 105, y: 185, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("descrito na definiçăo 2 (a) (b) (c) (d) ou (e) na altura da ocorręncia do incidente que deu origem ŕ reclamaçăo",           font5, XBrushes.Black, new XRect(x: 105, y: 187, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b) responsabilidade resultante da operaçăo, demonstraçăo ou uso para efeitos que năo a manutençăo ou a reparaçăo de um",    font5, XBrushes.Black, new XRect(x: 105, y: 189, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("veículo (a năo ser que seja uma empilhadora) ou qualquer ferramenta ou maquinaria que faça parte de um veículo, ou que",    font5, XBrushes.Black, new XRect(x: 105, y: 191, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("esteja ligada ao mesmo, ou usada em relaçăo ao mesmo, ou qualquer coisa fabricada por tal ferramenta ou maquinaria, ou",    font5, XBrushes.Black, new XRect(x: 105, y: 193, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("nelas incluído",                                                                                                            font5, XBrushes.Black, new XRect(x: 105, y: 195, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Limites da Indemnizaçăo",                                                                                                   font5, XBrushes.Black, new XRect(x: 105, y: 197, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("A năo ser que se expresse o contrário, a responsabilidade da empresa de acordo com esta apólice relativamente a qualquer",  font5, XBrushes.Black, new XRect(x: 105, y: 199, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ocorręncia năo excederá o limite de R1 000 000,00.",                                                                        font5, XBrushes.Black, new XRect(x: 105, y: 201, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Definiçőes",                                                                                                                font5, XBrushes.Black, new XRect(x: 105, y: 203, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1.Ocorręncia",                                                                                                               font5, XBrushes.Black, new XRect(x: 105, y: 205, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("O termo ocorręncia significa uma ocorręncia ou uma série de ocorręncias resultantes de uma causa em relaçăo a um veículo a", font5, XBrushes.Black, new XRect(x: 105, y: 207, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("respeito do qual se oferece indemnizaçăo com esta apólice.",                                                                 font5, XBrushes.Black, new XRect(x: 105, y: 209, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("O termo veículo significa",                                                                                                  font5, XBrushes.Black, new XRect(x: 105, y: 211, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a)         automóveis de tipo privado (incluindo “station wagons”, carrinhas de safari e outros veículos semelhantes ou",    font5, XBrushes.Black, new XRect(x: 105, y: 213, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("idęnticos concebidos para năo mais do que 9 lugares, incluindo o do condutor)",                                              font5, XBrushes.Black, new XRect(x: 105, y: 215, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b) veículos comerciais e veículos especiais tal como descritos acima",                                                       font5, XBrushes.Black, new XRect(x: 105, y: 217, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c) motocicletas (incluindo “scooters” e veículos de 3 rodas)",                                                               font5, XBrushes.Black, new XRect(x: 105, y: 219, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d)         autocarros (incluindo qualquer veículo utilizado para actividades comerciais e concebido para mais de 9",         font5, XBrushes.Black, new XRect(x: 105, y: 221, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("lugares, incluindo o do condutor)",                                                                                          font5, XBrushes.Black, new XRect(x: 105, y: 223, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("e)       atrelados, isto é, qualquer veículo sem meios de auto-propulsăo concebido para ser puxado por um veículo",          font5, XBrushes.Black, new XRect(x: 105, y: 225, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("com auto-propulsăo, mas excluindo quaisquer peças ou acessórios que năo estejam adaptados ao mesmo de forma",                font5, XBrushes.Black, new XRect(x: 105, y: 227, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("permanente",                                                                                                                 font5, XBrushes.Black, new XRect(x: 105, y: 229, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Extensőes",                                                                                                                  font5, XBrushes.Black, new XRect(x: 105, y: 231, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1. Renúncia Aos Direitos De Sub-rogaçăo",                                                                                    font5, XBrushes.Black, new XRect(x: 105, y: 233, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Para efeitos desta secçăo, a empresa renuncia a todos os direitos de sub-rogaçăo ou acçăo que possa ter ou adquirir contra", font5, XBrushes.Black, new XRect(x: 105, y: 235, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("qualquer outra pessoa a quem se aplica a indemnizaçăo de acordo com este documento e cada pessoa observará, cumprirá e",     font5, XBrushes.Black, new XRect(x: 105, y: 237, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("estará sujeita aos termos, excepçőes e condiçőes (tanto gerais como específicas) desta apólice na medida em que se",         font5, XBrushes.Black, new XRect(x: 105, y: 239, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("aplicarem.",                                                                                                                 font5, XBrushes.Black, new XRect(x: 105, y: 241, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2. Responsabilidades Cruzadas",                                                                                              font5, XBrushes.Black, new XRect(x: 105, y: 243, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Quando se mencionar mais do que um segurado na tabela, a empresa indemnizará cada segurado separadamente e năo em",          font5, XBrushes.Black, new XRect(x: 105, y: 245, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("conjunto e considerar-se-á qualquer responsabilidade que surja entre tais segurados como se tivessem emitido apólices",      font5, XBrushes.Black, new XRect(x: 105, y: 247, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("separadas a cada um, desde que a responsabilidade total da empresa năo exceda o limite da indemnizaçăo expresso na",         font5, XBrushes.Black, new XRect(x: 105, y: 249, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("tabela.",                                                                                                                    font5, XBrushes.Black, new XRect(x: 105, y: 251, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("3. Descriçăo Da Cláusula Sobre O Uso",                                                                                        font5, XBrushes.Black, new XRect(x: 105, y: 253, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Uso para efeitos sociais, domésticos e de lazer, bem como para a actividade empresarial ou ocupaçăo do segurado, excluindo:", font5, XBrushes.Black, new XRect(x: 105, y: 255, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("aluguer, transporte de passageiros por pagamento, transporte de passageiros com bilhete pago, corridas, competiçőes de",        font5, XBrushes.Black, new XRect(x: 105, y: 257, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("velocidade ou outras, ralis, provas, transporte de explosivos ou químicos, ou transporte de qualquer carga ou passageiros que", font5, XBrushes.Black, new XRect(x: 105, y: 259, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("exceda a capacidade para a qual o veículo foi concebido ou está autorizado a transportar, ou uso para qualquer efeito",         font5, XBrushes.Black, new XRect(x: 105, y: 261, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("relacionado com o comércio automóvel. A indemnizaçăo ao segurado relativa a qualquer veículo estará em vigor enquanto tal",     font5, XBrushes.Black, new XRect(x: 105, y: 263, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("veículo estiver sob a supervisăo ou controle de um membro do comércio automóvel para efeitos de revisăo, manutençăo ou",        font5, XBrushes.Black, new XRect(x: 105, y: 265, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("reparaçăo.",                                                                                                                    font5, XBrushes.Black, new XRect(x: 105, y: 267, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Excepçőes Específicas",                                                                                                         font5, XBrushes.Black, new XRect(x: 105, y: 269, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("1.        A empresa năo será responsável por qualquer acidente, ferimento, perda, prejuízo ou responsabilidade",                font5, XBrushes.Black, new XRect(x: 105, y: 271, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a. enquanto o veículo estiver a ser usado de outra forma que năo em conformidade com a descriçăo da",                           font5, XBrushes.Black, new XRect(x: 105, y: 273, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("cláusula sobre o seu uso",                                                                                                      font5, XBrushes.Black, new XRect(x: 105, y: 275, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b. ocorridos fora da zona que constitui a República de Moçambique",                                                             font5, XBrushes.Black, new XRect(x: 105, y: 277, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("c.        enquanto o veículo estiver a ser usado em qualquer estrada secundária ao longo da costa, inclusive",                  font5, XBrushes.Black, new XRect(x: 105, y: 279, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("enquanto o veículo estiver a ser usado para o lançamento e/ou recuperaçăo de qualquer veículo aquático da zona de",             font5, XBrushes.Black, new XRect(x: 105, y: 281, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("rebentaçăo",                                                                                                                    font5, XBrushes.Black, new XRect(x: 105, y: 283, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("i. o segurado enquanto estiver sob a influęncia de bebidas alcoólicas ou estupefacientes (a năo ser que",                       font5, XBrushes.Black, new XRect(x: 105, y: 285, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("", font5, XBrushes.Black, new XRect(x: 10, y: 287, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("", font5, XBrushes.Black, new XRect(x: 10, y: 289, 22, 0), XStringFormats.TopLeft);
+            
+
+
+
+
+
+
+
+
+
+
+          
+        
+
+
+                using (MemoryStream ms = new MemoryStream())
+            {
+                document.Save(ms);
+
+                return ms.ToArray();
+            }
+
+            ////When drawing is done, write the file:
+            //string filename = "Test.pdf";
+            //document.Save(filename);
+
+            //Process.Start(filename);
+        }
+
+        private void UpdateDocumentPreview()
+        {
+            string content = Convert.ToBase64String(Generate_Certificate());
+
+            pdfWebViewer.Load($"data:application/pdf;base64,{content}");
+        }
+
+
+        private void pdfWebViewer_Loaded(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+        private void btn_generatePreview_Click(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+
+        private void btn_DownloadPDF_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] FileContent = Generate_Certificate();
+
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PDF File (*.pdf)|*.pdf";
+            dialog.DefaultExt = "pdf";
+            dialog.AddExtension = true;
+            dialog.FileName = $"Preview_ExpedireTestDoc.pdf";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllBytes(dialog.FileName, FileContent);
+                System.Windows.MessageBox.Show("Completed. Saved @ -> " + dialog.FileName);
+            }
+
+        }
+    }
+}

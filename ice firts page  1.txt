@@ -1,0 +1,179 @@
+
+
+ public partial class DocCoderView : System.Windows.Controls.UserControl
+    {
+        public DocCoderView()
+        {
+            InitializeComponent();
+        }
+
+        
+
+
+
+
+    
+        public byte[] Generate_Certificate()
+        { 
+            //You’ll need a PDF document
+            PdfDocument document = new PdfDocument();
+
+
+    
+
+        //And you need a page:
+        PdfPage page = document.AddPage();
+
+        page.Height = new XUnit(297, XGraphicsUnit.Millimeter);
+        page.Width = new XUnit(210, XGraphicsUnit.Millimeter);
+
+
+        //Drawing is done with an XGraphics object
+        XGraphics gfx = XGraphics.FromPdfPage(page, unit: XGraphicsUnit.Millimeter);
+
+
+        //Fonts 
+        XFont font = new XFont("Helvetica", 2.5d, XFontStyle.Regular);
+        XFont BOLD_font = new XFont("Helvetica", 2.7d, XFontStyle.Bold);
+        XFont BOLD_font1 = new XFont("Helvetica", 3.1d, XFontStyle.Bold);
+        XFont BOLD_font2 = new XFont("Helvetica", 2.5d, XFontStyle.Bold); 
+        XFont font1 = new XFont("manrope", 3.1d,XFontStyle.Underline);
+        XFont font2 = new XFont("manrope", 2.5d);
+        XFont font3 = new XFont("manrope", 2.8d);
+        XFont font4 = new XFont("manrope", 4.0d);
+
+            //Png load out
+
+            //backdop do not delete
+            XImage imagebk = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\backdrop2.png");
+            gfx.DrawImage(image: imagebk, x: 22, y: 59, width: imagebk.PixelWidth * 24 / imagebk.HorizontalResolution, height: imagebk.PixelHeight * 23.1 / imagebk.HorizontalResolution);
+
+            //ice logo
+            XImage imageice = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\icelogo.png");
+            gfx.DrawImage(image: imageice, x: 20, y: 14, width: imageice.PixelWidth * 24 / imageice.HorizontalResolution, height: imageice.PixelHeight * 26 / imageice.HorizontalResolution);
+
+            //Askari Logo
+            XImage imageaskari = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\askarilogo.png");
+            gfx.DrawImage(image: imageaskari, x: 145, y: 11, width: imageaskari.PixelWidth * 24 / imageaskari.HorizontalResolution, height: imageaskari.PixelHeight * 26 / imageaskari.HorizontalResolution);
+
+            //Signature ice DM
+            XImage imagesig = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\icesig.png");
+            gfx.DrawImage(image: imagesig, x: 132, y: 164, width: imagesig.PixelWidth * 24 / imagesig.HorizontalResolution, height: imagesig.PixelHeight * 24 / imagesig.HorizontalResolution);
+
+
+
+
+            //Variable data class//
+            //POLICY NUMBER
+            gfx.DrawString("TPLSZAR23072", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 98, 22, 0), XStringFormats.TopCenter);
+            //THIRD PARTY LIMIT
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 104, 22, 0), XStringFormats.TopCenter);
+            //INSURED
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 112.5, 22, 0), XStringFormats.TopCenter);
+            //VEHICLE
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 118, 22, 0), XStringFormats.TopCenter);
+            //REGISTRATION
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 123.5, 22, 0), XStringFormats.TopCenter);
+            //PERIOD
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 129, 22, 0), XStringFormats.TopCenter);
+            //DATE OF ISSUE
+            gfx.DrawString("............", BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 135, 22, 0), XStringFormats.TopCenter);
+            //veriable data end//
+
+
+
+            //Header//
+            gfx.DrawString("CERTIFICADO DE SEGURO AUTOMÓVEL", font1, XBrushes.Black, new XRect(x: 95, y: 61, 22, 0), XStringFormats.TopCenter); 
+            gfx.DrawString("MOTOR INSURANCE CERTIFICATE",     font1, XBrushes.Black, new XRect(x: 95, y: 66, 22, 0), XStringFormats.TopCenter);
+            //end//
+
+            //Certificate to confirm ICE Seguros insures Left Side
+            gfx.DrawString("Este certificado serve para confirmar que a ICE SEGUROS", BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 72, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("emitiu o seguinte contrato de seguro",                    BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 76, 22, 0), XStringFormats.TopLeft);
+            //This certificate serves to confirm that ICE SEGUROS right side
+            gfx.DrawString("This certificate serves to confirm that ICE SEGUROS insures the", BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 72, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("following contract",                                              BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 76, 22, 0), XStringFormats.TopRight);
+
+
+
+            //CENTER INFO PANEL left
+
+            gfx.DrawString("Seguro Automóvel",          font2, XBrushes.Black, new XRect(x: 58, y: 87, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Seguros Contra Terceiros ", font2, XBrushes.Black, new XRect(x: 58, y: 93, 22, 0), XStringFormats.TopLeft);
+
+            //Center info panel right
+
+            gfx.DrawString("Motor Insurance",               font2, XBrushes.Black, new XRect(x: 131.5, y: 87, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Motor - Third Party Liability", font2, XBrushes.Black, new XRect(x: 131.5, y: 93, 22, 0), XStringFormats.TopRight);
+
+            //Left side static Ramo untill Data de emissao
+            gfx.DrawString("RAMO",                           font2, XBrushes.Black, new XRect(x: 25, y: 87, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("TIPO",                           font2, XBrushes.Black, new XRect(x: 25, y: 93, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("NÚMERO DA APÓLICE ",             font2, XBrushes.Black, new XRect(x: 25, y: 98, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("LIMITE R.C.",                    font2, XBrushes.Black, new XRect(x: 25, y: 104, 22, 0), XStringFormats.TopLeft);
+
+            gfx.DrawString("SEGURADO",          font2, XBrushes.Black, new XRect(x: 25, y: 112.5, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("VEÍCULO",           font2, XBrushes.Black, new XRect(x: 25, y: 118, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("MATRÍCULA",         font2, XBrushes.Black, new XRect(x: 25, y: 123.5, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("VALIDADE",          font2, XBrushes.Black, new XRect(x: 25, y: 129, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("DATA DE EMISSÃO",   font2, XBrushes.Black, new XRect(x: 25, y: 135, 22, 0), XStringFormats.TopLeft);
+
+            //Right panel class = date of issue
+            gfx.DrawString("CLASS",                       font2, XBrushes.Black, new XRect(x: 164, y: 87, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("TYPE",                        font2, XBrushes.Black, new XRect(x: 164, y: 93, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("POLICY NUMBER",               font2, XBrushes.Black, new XRect(x: 164, y: 98, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("THIRD PARTY LIMIT",           font2, XBrushes.Black, new XRect(x: 164, y: 104, 22, 0), XStringFormats.TopRight);
+
+            gfx.DrawString("INSURED",                  font2, XBrushes.Black, new XRect(x: 164, y: 112.5, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("VEHICLE",                  font2, XBrushes.Black, new XRect(x: 164, y: 118, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("REGISTRATION",             font2, XBrushes.Black, new XRect(x: 164, y: 123.5, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("PERIOD",                   font2, XBrushes.Black, new XRect(x: 164, y: 129, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("DATE OF ISSUE",            font2, XBrushes.Black, new XRect(x: 164, y: 135, 22, 0), XStringFormats.TopRight);
+
+
+            //Territotial limits
+            gfx.DrawString("TERRITORIAL LIMITS",                 font2, XBrushes.Black, new XRect(x: 164, y: 149, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Mozambique, South Africa, Malawi,",  font2, XBrushes.Black, new XRect(x: 131.5, y: 149, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Swaziland, Lesotho, Namibia,",       font2, XBrushes.Black, new XRect(x: 131.5, y: 152.5, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Botswana, Zambia and",               font2, XBrushes.Black, new XRect(x: 131.5, y: 156, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Zimbabwe",                           font2, XBrushes.Black, new XRect(x: 131.5, y: 159.3, 22, 0), XStringFormats.TopRight);
+
+
+
+
+
+            //LIMITES TERRITORIAIS left side
+            gfx.DrawString("LIMITES TERRITORIAIS",               font2, XBrushes.Black, new XRect(x: 25, y: 149, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Moçambique, Africa do Sul, Malawi,", font2, XBrushes.Black, new XRect(x: 58, y: 149, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Suazilândia, Lesoto, Namíbia",       font2, XBrushes.Black, new XRect(x: 58, y: 152.5, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Botswana, Zâmbia e Zimbabwe",        font2, XBrushes.Black, new XRect(x: 58, y: 156, 22, 0), XStringFormats.TopLeft);
+
+            //Footer panel
+            gfx.DrawString("International Commercial & Engineering ICE Seguros, SA", BOLD_font1, XBrushes.Black, new XRect(x: 24, y: 163.5, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("NUEL: 100 572 532",                                      BOLD_font1, XBrushes.Black, new XRect(x: 24, y: 167.5, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("NUIT: 400 580 952",                                      BOLD_font1, XBrushes.Black, new XRect(x: 24, y: 171.5, 22, 0), XStringFormats.TopLeft);
+
+            //Midel footer Ice detials
+            gfx.DrawString("ICE SEGUROS",                    BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 178, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("141A Rua José Craveirinha",      BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 181.5, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("Bairro de Polana",               BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 185, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("Cidade de Maputo",               BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 188.5, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("Moçambique",                     BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 192, 22, 0), XStringFormats.TopCenter);
+            gfx.DrawString("TEL: +258 21 486 612",           BOLD_font2, XBrushes.Black, new XRect(x: 95, y: 196, 22, 0), XStringFormats.TopCenter);
+
+            //bottom footer
+            gfx.DrawString("Certifica-se que o contrato de seguro foi estabelecido conforme",   BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 202, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("as condições gerais, especiais e particulares contidas na apólice", BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 205, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("emitida pela ICE Seguros",                                          BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 208, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Cobertura válida sob reserva do pagamento do prémio.",              BOLD_font2, XBrushes.Black, new XRect(x: 24, y: 220, 22, 0), XStringFormats.TopLeft);
+
+            //bottom footer right side
+            gfx.DrawString("We notify that the insurance contract is based on general,",      BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 202, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("special and specific conditions contained in the policy wording", BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 205, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Insured by ICE Seguros.",                                         BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 208, 22, 0), XStringFormats.TopRight);
+            gfx.DrawString("Cover is valid provided that the premium is paid.",               BOLD_font2, XBrushes.Black, new XRect(x: 164, y: 220, 22, 0), XStringFormats.TopRight);
+
+
+
+            gfx.DrawString("", font1, XBrushes.Black, new XRect(x: 95, y: 61, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("", font1, XBrushes.Black, new XRect(x: 95, y: 61, 22, 0), XStringFormats.TopLeft);

@@ -1,0 +1,221 @@
+namespace Expedire_Toolkit.UserControls.DocCoder
+{
+    /// <summary>
+    /// Interaction logic for DocCoderView.xaml
+    /// </summary>
+    public partial class DocCoderView : System.Windows.Controls.UserControl
+    {
+        
+
+        public DocCoderView()
+        {
+            InitializeComponent();
+        }
+
+
+
+        public byte[] Generate_Certificate()
+        {
+            //You’ll need a PDF document
+            PdfDocument document = new PdfDocument();
+
+
+
+
+            //And you need a page:
+            PdfPage pdfPage = document.AddPage();
+            PdfPage page = pdfPage;
+
+            page.Height = new XUnit(297, XGraphicsUnit.Millimeter);
+            page.Width = new XUnit(210, XGraphicsUnit.Millimeter);
+
+
+            //Drawing is done with an XGraphics object
+            XGraphics gfx = XGraphics.FromPdfPage(page, unit: XGraphicsUnit.Millimeter);
+
+
+            //Fonts 
+            XFont font = new XFont("Helvetica", 1.6d, XFontStyle.Regular);
+            XFont BOLD_font = new XFont("Helvetica", 2.7d, XFontStyle.Bold);
+            XFont BOLD_font1 = new XFont("Helvetica", 3.5d, XFontStyle.Bold);
+            XFont BOLD_font2 = new XFont("Helvetica", 2.5d, XFontStyle.Bold);
+            XFont font1 = new XFont("manrope", 3.1d, XFontStyle.Underline);
+            XFont font2 = new XFont("manrope", 2.5d);
+            XFont font3 = new XFont("manrope", 2.8d);
+            XFont font4 = new XFont("manrope", 4.0d);
+            XFont font5 = new XFont("manrope", 1.8d);
+
+
+            //Png load out
+
+            //backdop do not delete
+            XImage image2 = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\icelogo.png");
+            gfx.DrawImage(image: image2, x: 10, y: 15, width: image2.PixelWidth * 27 / image2.HorizontalResolution, height: image2.PixelHeight * 27 / image2.HorizontalResolution);
+
+            //
+            XImage image1 = XImage.FromFile("C:\\Users\\Johnny\\Desktop\\imgex\\askarilogo.png");
+            gfx.DrawImage(image: image1, x: 135, y: 15, width: image1.PixelWidth * 24 / image1.HorizontalResolution, height: image1.PixelHeight * 24 / image1.HorizontalResolution);
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+           
+
+
+            //terms and condtions left side 
+
+            gfx.DrawString("profession other than himself) or while not licensed to drive such vehicle",                                            font5, XBrushes.Black, new XRect(x: 10, y: 65, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(ii)       any other person with the general consent of the insured who to the insured’s",                              font5, XBrushes.Black, new XRect(x: 10, y: 67, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("knowledge is under the influence of intoxicating liquor or drugs (unless administered by or prescribed by",             font5, XBrushes.Black, new XRect(x: 10, y: 69, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("and taken in accordance with the instructions of a member of the medical profession other than himself)",               font5, XBrushes.Black, new XRect(x: 10, y: 71, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("or is not licensed to drive such vehicle",                                                                              font5, XBrushes.Black, new XRect(x: 10, y: 73, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d)         Any driver shall be deemed to be licensed to drive the vehicle if he is complying with the",                 font5, XBrushes.Black, new XRect(x: 10, y: 75, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("licensing laws relating to any of the territories referred to under specific exception (b) or if",                      font5, XBrushes.Black, new XRect(x: 10, y: 77, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("non-compliance with any licensing law is solely because of failure to renew any license subject to",                    font5, XBrushes.Black, new XRect(x: 10, y: 79, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("periodic renewal of if a license is not required by law while such driver is learning to drive and is",                 font5, XBrushes.Black, new XRect(x: 10, y: 81, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("complying with the laws relating to learners.",                                                                         font5, XBrushes.Black, new XRect(x: 10, y: 83, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("e)         Should the Insured vehicle or any part thereof or any trailer attached thereto or forming",                  font5, XBrushes.Black, new XRect(x: 10, y: 85, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("part of a train of trailers drawn thereby or any part of any such trailer or trailers (all of which are hereto",        font5, XBrushes.Black, new XRect(x: 10, y: 87, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("referred to as “the insured vehicle” fail to comply with or meet in any respect the requirements for",                  font5, XBrushes.Black, new XRect(x: 10, y: 89, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("roadworthiness as required by legislation or of any provincial or local proclamation or statute which is",              font5, XBrushes.Black, new XRect(x: 10, y: 91, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("applicable to the Insured vehicle of the territory in which it is being used or, having been so licensed,",             font5, XBrushes.Black, new XRect(x: 10, y: 93, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("then all benefit under this policy in respect of any claim made shall be forfeit whether or not the",                   font5, XBrushes.Black, new XRect(x: 10, y: 95, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("roadworthiness of the vehicle was a cause of or contributed towards the occurrence given rise to such",                 font5, XBrushes.Black, new XRect(x: 10, y: 97, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("claim.",                                                                                                                font5, XBrushes.Black, new XRect(x: 10, y: 99, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2.        The company shall not be liable for any claim arising from contractual liability, unless",                    font5, XBrushes.Black, new XRect(x: 10, y: 101, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("such liability would have attached to the insured notwithstanding such contractual agreement.",                         font5, XBrushes.Black, new XRect(x: 10, y: 103, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Specific Condition",                                                                                                    font5, XBrushes.Black, new XRect(x: 10, y: 105, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("If during the currency of this insurance any driver’s licence in favour of the insured or their authorised driver is",  font5, XBrushes.Black, new XRect(x: 10, y: 107, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("endorsed, suspended or cancelled or if such driver shall be charged or convicted of negligent, reckless or improper",   font5, XBrushes.Black, new XRect(x: 10, y: 109, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("driving, notification shall be sent in writing to the company immediately the insured has knowledge of such fact.",     font5, XBrushes.Black, new XRect(x: 10, y: 111, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Claims Procedure",                                                                                                      font5, XBrushes.Black, new XRect(x: 10, y: 113, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(a)       On the happening of any event which may result in a claim under this policy the insured",                     font5, XBrushes.Black, new XRect(x: 10, y: 115, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("shall, at their own expense",                                                                                           font5, XBrushes.Black, new XRect(x: 10, y: 117, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("i)        give notice thereof to the company as soon as reasonably possible and provide",                               font5, XBrushes.Black, new XRect(x: 10, y: 119, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("particulars of any other Insurance covering such events as are hereby insured",                                         font5, XBrushes.Black, new XRect(x: 10, y: 121, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(ii)      as soon as practicable after the event but not later than 30 days submit to the company",                     font5, XBrushes.Black, new XRect(x: 10, y: 123, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("full details in writing of any claim.full details in writing of any claim.",                                            font5, XBrushes.Black, new XRect(x: 10, y: 125, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(iii)     give the company such proofs, information and sworn declaration as the company may",                          font5, XBrushes.Black, new XRect(x: 10, y: 127, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("require and forward to the company immediately any notice of claim or any communication, writ,",                        font5, XBrushes.Black, new XRect(x: 10, y: 129, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("summons or other legal process issued or commenced against the insured in connection with the event",                   font5, XBrushes.Black, new XRect(x: 10, y: 131, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("giving rise to a claim.",                                                                                               font5, XBrushes.Black, new XRect(x: 10, y: 133, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("(b)       No claim shall be payable unless the insured claims payment by serving legal process",                        font5, XBrushes.Black, new XRect(x: 10, y: 135, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("on the company within 6 months of the rejection of the claim in writing and pursues such proceedings to",               font5, XBrushes.Black, new XRect(x: 10, y: 137, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("inality.",                                                                                                              font5, XBrushes.Black, new XRect(x: 10, y: 139, 22, 0), XStringFormats.TopLeft);
+            
+
+
+
+            //tc right side
+            gfx.DrawString("ministrados por um membro da profissăo médica que năo ele próprio ou prescritos e tomados de acordo com as suas",             font5, XBrushes.Black, new XRect(x: 105, y: 65, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("instruçőes)ou enquanto năo tiver carta para conduzir tal veículo",                                                            font5, XBrushes.Black, new XRect(x: 105, y: 67, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ii.      qualquer outra pessoa com o consentimento geral do segurado que, com o conhecimento do segurado,",                   font5, XBrushes.Black, new XRect(x: 105, y: 69, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("estiver sob a influęncia de bebidas alcoólicas ou estupefacientes (a năo ser que ministrados por um membro da profissăo",     font5, XBrushes.Black, new XRect(x: 105, y: 71, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("médica que năo ele próprio ou prescritos ou tomados de acordo com as suas instruçőes) ou enquanto năo tiver carta para",      font5, XBrushes.Black, new XRect(x: 105, y: 73, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("conduzir tal veículo.",                                                                                                       font5, XBrushes.Black, new XRect(x: 105, y: 75, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("d.       Considerar-se-á que qualquer condutor tem autorizaçăo para conduzir o veículo se cumprir com as leis de",            font5, XBrushes.Black, new XRect(x: 105, y: 77, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("licenciamento em quaisquer dos territórios mencionados na excepçăo específica (b) ou se o năo cumprimento de qualquer lei",   font5, XBrushes.Black, new XRect(x: 105, y: 79, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("de licenciamento se dever apenas ŕ omissăo em renovar qualquer carta sujeita a renovaçăo periódica ou se uma carta năo for",  font5, XBrushes.Black, new XRect(x: 105, y: 81, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("exigida por lei enquanto tal condutor estiver a aprender a conduzir e cumprir as leis respeitantes a condutores aprendizes.", font5, XBrushes.Black, new XRect(x: 105, y: 83, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("e.Se o veículo seguro, ou qualquer parte do mesmo, ou qualquer reboque preso ao mesmo, ou que faça parte de um conjunto",     font5, XBrushes.Black, new XRect(x: 105, y: 85, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("de reboques puxado pelo mesmo, ou qualquer parte de tal reboque ou reboques (aos quais se refere neste documento como",       font5, XBrushes.Black, new XRect(x: 105, y: 87, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("“o veículo seguro”) năo cumprir ou năo satisfizer, a qualquer nível, os requisitos a nível de bom estado de funcionamento",   font5, XBrushes.Black, new XRect(x: 105, y: 89, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("exigidos pela legislaçăo ou por qualquer édito ou estatuto provinciais ou locais que sejam aplicáveis ao veículo seguro no",  font5, XBrushes.Black, new XRect(x: 105, y: 91, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("território onde estiver a ser usado ou, no caso de possuir tal autorizaçăo, entăo perder-se-á o direito a todos os benefícios nos", font5, XBrushes.Black, new XRect(x: 105, y: 93, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("termos desta apólice relativamente a qualquer reclamaçăo feita, quer o bom estado de funcionamento do veículo tivesse sido",  font5, XBrushes.Black, new XRect(x: 105, y: 95, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("motivo da ocorręncia que deu origem a tal reclamaçăo ou năo, ou tivesse contribuído para a mesma.",                           font5, XBrushes.Black, new XRect(x: 105, y: 97, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("2.A empresa năo será responsável por qualquer reclamaçăo resultante de responsabilidade contratual, a năo ser que tal",        font5, XBrushes.Black, new XRect(x: 105, y: 99, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("responsabilidade esteja vinculada ao segurado năo obstante tal acordo contratual.",                                            font5, XBrushes.Black, new XRect(x: 105, y: 101, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Condiçăo Específica",                                                                                                          font5, XBrushes.Black, new XRect(x: 105, y: 103, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Se, durante o decurso deste seguro, a carta de conduçăo de qualquer condutor em favor do segurado ou do seu condutor",         font5, XBrushes.Black, new XRect(x: 105, y: 105, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("autorizado for endossada, suspensa ou cancelada ou se tal condutor for acusado ou condenado por conduçăo negligente,",         font5, XBrushes.Black, new XRect(x: 105, y: 107, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("descuidada ou imprópria, enviar-se-á notificaçăo por escrito ŕ empresa logo que o segurado tiver conhecimento desse facto.",   font5, XBrushes.Black, new XRect(x: 105, y: 109, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("Reclamaçőes",                                                                                                                  font5, XBrushes.Black, new XRect(x: 105, y: 111, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("a. Quando ocorrer qualquer sinistro que resulte numa reclamaçőes nos termos desta apólice, o segurado, ŕ sua",                 font5, XBrushes.Black, new XRect(x: 105, y: 113, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("própria custa",                                                                                                                font5, XBrushes.Black, new XRect(x: 105, y: 115, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("i.        notificará a empresa sobre o mesmo logo que razoavelmente possível e fornecerá pormenores de qualquer",              font5, XBrushes.Black, new XRect(x: 105, y: 117, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("outro seguro que cobre tais sinistros que sejam seguros por este meio",                                                        font5, XBrushes.Black, new XRect(x: 105, y: 119, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("ii.       logo que seja prático após o sinistro, mas năo mais tarde do que 30 dias, apresentará ŕ empresa os",                 font5, XBrushes.Black, new XRect(x: 105, y: 121, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("pormenores completos de qualquer reclamaçăo por escrito.",                                                                     font5, XBrushes.Black, new XRect(x: 105, y: 123, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("iii.      proporcionará ŕ empresa tais provas, informaçőes e declaraçăo ajuramentada que a empresa exija e enviará",           font5, XBrushes.Black, new XRect(x: 105, y: 125, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("imediatamente ŕ empresa qualquer aviso de reclamaçăo ou qualquer comunicaçăo, intimaçăo, citaçăo ou qualquer outra",           font5, XBrushes.Black, new XRect(x: 105, y: 127, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("acçăo legal instaurada ou iniciada contra o segurado relativamente ao sinistro que deu origem ŕ reclamaçăo.",                  font5, XBrushes.Black, new XRect(x: 105, y: 129, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("b.        Năo se pagará qualquer reclamaçăo a năo ser que o segurado reclame pagamento instaurando uma acçăo",                 font5, XBrushes.Black, new XRect(x: 105, y: 131, 22, 0), XStringFormats.TopLeft);
+            gfx.DrawString("legal contra a empresa 6 meses após a rejeiçăo da reclamaçăo por escrito e avance com tal",                                    font5, XBrushes.Black, new XRect(x: 105, y: 133, 22, 0), XStringFormats.TopLeft);
+            
+           
+            //terms and condtions left side 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                document.Save(ms);
+
+                return ms.ToArray();
+            }
+
+            ////When drawing is done, write the file:
+            //string filename = "Test.pdf";
+            //document.Save(filename);
+
+            //Process.Start(filename);
+        }
+
+        private void UpdateDocumentPreview()
+        {
+            string content = Convert.ToBase64String(Generate_Certificate());
+
+            pdfWebViewer.Load($"data:application/pdf;base64,{content}");
+        }
+
+
+        private void pdfWebViewer_Loaded(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+        private void btn_generatePreview_Click(object sender, RoutedEventArgs e) => UpdateDocumentPreview();
+
+
+        private void btn_DownloadPDF_Click(object sender, RoutedEventArgs e)
+        {
+            byte[] FileContent = Generate_Certificate();
+
+
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PDF File (*.pdf)|*.pdf";
+            dialog.DefaultExt = "pdf";
+            dialog.AddExtension = true;
+            dialog.FileName = $"Preview_ExpedireTestDoc.pdf";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                File.WriteAllBytes(dialog.FileName, FileContent);
+                System.Windows.MessageBox.Show("Completed. Saved @ -> " + dialog.FileName);
+            }
+
+        }
+    }
+}
